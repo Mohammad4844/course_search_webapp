@@ -1,24 +1,11 @@
-# README
+# Rails Web API for Course Search
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the webapp for use with emu courses database as an api for searching.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Instructions for setup
+1) Clone this repository
+2) `cd` into this repo and `bundle install` the dependencies
+3) Declare the env variables for the postgres database connection
+    - env variables: DB_HOST, DB_NAME, DB_USER, DB_PASS
+    - port is assumed to be 5432
+4) Start the server with `rails server
