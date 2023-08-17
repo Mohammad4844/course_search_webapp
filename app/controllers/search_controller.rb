@@ -2,7 +2,7 @@ class SearchController < ApplicationController
   def search
     search_params = filtered_params
 
-    departments = filtered_params[:departements] || []
+    departments = filtered_params[:departments] || []
     course_codes = filtered_params[:course_codes] || []
     characteristics = filtered_params[:characteristics] || []
     availabilities = filtered_params[:availabilities] || []
@@ -32,7 +32,14 @@ class SearchController < ApplicationController
 
   def filtered_params
     params.permit(
-      :departments, :course_codes,:availabilities, :attributes
+      :departments => [],
+      :course_codes => [],
+      :availabilities => [
+        :day,
+        :start_time,
+        :end_time
+      ],
+      :characteristics => []
     )
   end
 
