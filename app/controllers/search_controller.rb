@@ -17,7 +17,7 @@ class SearchController < ApplicationController
           department: { only: :code },
           characteristics: { only: :name}
         },
-        only: [ :title ]
+        only: [ :code, :title, :credits ]
       },
       meetings: { 
         include: {
