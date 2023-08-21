@@ -17,7 +17,7 @@ class SearchController < ApplicationController
           department: { only: :code },
           characteristics: { only: :name}
         },
-        only: [ :code, :title, :credits ]
+        only: [ :title ]
       },
       meetings: { 
         include: {
@@ -57,11 +57,11 @@ class SearchController < ApplicationController
     # filter meetings that fall into availabilties 
     if availabilities.any?
       meeting_conditions = []
-      availabilities.each do |day, start_time, end_time|
+      availabilities.each do |a|
         meeting_conditions << Meeting.where(
-          day: day,
-          start_time: start_time..end_time,
-          end_time: start_time..end_time
+          day: a[:day],
+          start_time: a[:start_time]..a[:end_time],
+          end_time: a[:start_time]..a[:end_time]
         )
       end
       meetings = meeting_conditions.reduce(:or)
