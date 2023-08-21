@@ -27,9 +27,10 @@ module CourseSearch
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'http://127.0.0.1' # Replace with your frontend domain
+        origins 'https://mohammad4844.github.io' # Replace with your frontend domain
         resource '*', headers: :any, methods: [:get, :post, :options]
       end
     end
+    config.hosts << "emu-course-search.imxxn.net"
   end
 end
